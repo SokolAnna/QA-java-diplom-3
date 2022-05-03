@@ -20,7 +20,7 @@ public class ConstructorTest {
     @Before
     public void setUp() {
         System.setProperty("selenide.browser", "Chrome");
-        Configuration.pageLoadTimeout = 45000;
+        Configuration.pageLoadTimeout = 5000;
 
         mainOpen = open(MainClient.BASE_URL, MainPageElements.class);
         mainPage = page(MainPageElements.class);
@@ -30,67 +30,63 @@ public class ConstructorTest {
     @DisplayName("Fillings jump from buns success")
     @Description("Click fillings tub")
     public void fillingsJumpFromBunsSuccess() {
-        mainOpen.fillingsNoSelectMenuButton.shouldBe(enabled).click();
+        mainOpen.fillingsMenuButtonClick();
 
-        mainPage.fillingsSelectMenuButton.shouldBe(visible);
-        mainPage.ingredients.shouldBe(visible);
+        mainPage.fillingsHeader.shouldBe(visible);
+        mainPage.shellfishFillingText.shouldBe(visible);
     }
 
     @Test
     @DisplayName("Fillings jump from sauces success")
     @Description("Click sauces tub, click fillings tub")
     public void fillingsJumpFromSaucesSuccess() {
-        mainOpen.saucesNoSelectMenuButton.click();
-        mainPage.fillingsNoSelectMenuButton.shouldBe(enabled).click();
+        mainOpen.saucesMenuButtonClick();
+        mainPage.fillingsMenuButtonClick();
 
-        mainPage.fillingsSelectMenuButton.shouldBe(visible);
-        mainPage.ingredients.shouldBe(visible);
+        mainPage.fillingsHeader.shouldBe(visible);
+        mainPage.shellfishFillingText.shouldBe(visible);
     }
 
     @Test
     @DisplayName("Sauces jump from buns success")
     @Description("Click sauces tub")
     public void saucesJumpFromBunsSuccess() {
-        mainOpen.saucesNoSelectMenuButton.shouldBe(enabled).click();
+        mainOpen.saucesMenuButtonClick();
 
-        mainPage.saucesSelectMenuButton.shouldBe(visible);
-        mainPage.ingredients.shouldBe(visible);
+        mainPage.saucesHeader.shouldBe(visible);
+        mainPage.spicySauceText.shouldBe(visible);
     }
 
     @Test
     @DisplayName("Sauces jump from fillings success")
     @Description("Click fillings tub, click sauces tub")
     public void saucesJumpFromFillingsSuccess() {
-        mainOpen.fillingsNoSelectMenuButton.click();
-        mainPage.saucesNoSelectMenuButton.shouldBe(enabled).click();
+        mainOpen.fillingsMenuButtonClick();
+        mainPage.saucesMenuButtonClick();
 
-        mainPage.saucesSelectMenuButton.shouldBe(visible);
-        mainPage.ingredients.shouldBe(visible);
+        mainPage.saucesHeader.shouldBe(visible);
+        mainPage.spicySauceText.shouldBe(visible);
     }
 
     @Test
     @DisplayName("Buns jump from fillings success")
-    @Description("Click fillings tub, click buns tub")
+    @Description("Scroll to fillings, click buns tub")
     public void bunsJumpFromFillingsSuccess() {
-        mainOpen.fillingsNoSelectMenuButton.click();
-        Configuration.pageLoadTimeout = 45000;
-        mainPage.bunsNoSelectMenuButton.should(visible, Duration.ofSeconds(1000));
-        mainPage.bunsNoSelectMenuButton.shouldBe(enabled).click();
+        mainOpen.fillingsHeader.scrollIntoView(true);
+        mainPage.bunsMenuButtonClick();
 
-        mainPage.bunsSelectMenuButton.shouldBe(visible);
-        mainPage.ingredients.shouldBe(visible);
+        mainPage.bunsHeader.shouldBe(visible);
+        mainPage.fluorescentBunText.shouldBe(visible);
     }
 
     @Test
     @DisplayName("Buns jump from sauces success")
-    @Description("Click sauces tub, click buns tub")
+    @Description("Scroll to sauces, click buns tub")
     public void bunsJumpFromSaucesSuccess() {
-        mainOpen.saucesNoSelectMenuButton.click();
-        Configuration.pageLoadTimeout = 45000;
-        mainPage.bunsNoSelectMenuButton.should(visible, Duration.ofSeconds(5000));
-        mainPage.bunsNoSelectMenuButton.shouldBe(enabled).click();
+        mainOpen.saucesHeader.scrollIntoView(true);
+        mainPage.bunsMenuButtonClick();
 
-        mainPage.bunsSelectMenuButton.shouldBe(visible);
-        mainPage.ingredients.shouldBe(visible);
+        mainPage.bunsHeader.shouldBe(visible);
+        mainPage.fluorescentBunText.shouldBe(visible);
     }
 }

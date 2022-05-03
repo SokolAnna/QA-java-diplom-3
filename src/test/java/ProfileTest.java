@@ -48,7 +48,7 @@ public class ProfileTest {
         loginPage = page(LoginPageElements.class);
         profilePage = page(ProfilePageElements.class);
 
-        mainOpen.personalAccountButton.click();
+        mainOpen.accountButtonClick();
         loginPage.setLoginUser(userData.getEmail(), userData.getPassword());
     }
 
@@ -63,7 +63,7 @@ public class ProfileTest {
     @DisplayName("Authorized user personal account success")
     @Description("Move from main page to personal account page, authorized user")
     public void authorizedUserPersonalAccountSuccess() {
-        mainPage.personalAccountButton.click();
+        mainPage.accountButtonClick();
 
         profilePage.personalAccountPageButton.shouldBe(Condition.visible);
         profilePage.profileText.shouldBe(Condition.visible);
@@ -74,9 +74,9 @@ public class ProfileTest {
     @DisplayName("Account page click constructor button")
     @Description("Goes to main page from account page success")
     public void accountClickConstructorButtonSuccess() {
-        mainPage.personalAccountButton.click();
+        mainPage.accountButtonClick();
 
-        mainPage.constructorButton.click();
+        mainPage.constructorButtonClick();
         mainPage.collectBurgerMenu.shouldBe(Condition.visible);
     }
 
@@ -84,9 +84,9 @@ public class ProfileTest {
     @DisplayName("Account page click burger logo")
     @Description("Goes to main page from account page success")
     public void accountClickBurgerLogoSuccess() {
-        mainPage.personalAccountButton.click();
+        mainPage.accountButtonClick();
 
-        mainPage.headerLogo.click();
+        mainPage.headerLogoClick();
         mainPage.collectBurgerMenu.shouldBe(Condition.visible);
     }
 
@@ -94,9 +94,9 @@ public class ProfileTest {
     @DisplayName("Account logout success")
     @Description("Logout from account profile page logout button")
     public void accountLogoutSuccess() {
-        mainPage.personalAccountButton.click();
+        mainPage.accountButtonClick();
         profilePage.logoutButton.should(visible, Duration.ofSeconds(500));
-        profilePage.logoutButton.click();
+        profilePage.logoutButtonClick();
 
         loginPage.loginLogo.shouldBe(visible);
         loginPage.loginText.shouldBe(visible);

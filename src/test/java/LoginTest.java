@@ -60,7 +60,7 @@ public class LoginTest {
     @DisplayName("Login from login button is success")
     @Description("Button on the main page on the right, valid data")
     public void loginMainLoginButtonSuccess() {
-        mainOpen.loginButton.click();
+        mainOpen.loginButtonClick();
         loginPage.setLoginUser(userData.getEmail(), userData.getPassword());
         mainPage.collectBurgerMenu.shouldBe(Condition.visible);
     }
@@ -69,7 +69,7 @@ public class LoginTest {
     @DisplayName("Login from header success")
     @Description("Login from header personal account button, valid data")
     public void loginFromHeaderSuccess() {
-        mainOpen.personalAccountButton.click();
+        mainOpen.accountButtonClick();
         loginPage.setLoginUser(userData.getEmail(), userData.getPassword());
         mainPage.collectBurgerMenu.shouldBe(Condition.visible);
     }
@@ -78,10 +78,10 @@ public class LoginTest {
     @DisplayName("Login from registration page link")
     @Description("Already registered link, valid data")
     public void loginFromRegistrationPageLink() {
-        mainOpen.personalAccountButton.click();
-        loginPage.registerLink.click();
+        mainOpen.accountButtonClick();
+        loginPage.registerLinkClick();
 
-        registerPage.alreadyRegisteredLoginButton.click();
+        registerPage.registrationLoginButtonClick();
         loginPage.setLoginUser(userData.getEmail(), userData.getPassword());
         mainPage.collectBurgerMenu.shouldBe(Condition.visible);
     }
@@ -90,10 +90,10 @@ public class LoginTest {
     @DisplayName("Login from reset password page link")
     @Description("Remembered the password link, valid data")
     public void loginFromResetPasswordPageLink() {
-        mainOpen.personalAccountButton.click();
-        loginPage.resetPasswordLink.click();
+        mainOpen.accountButtonClick();
+        loginPage.resetPasswordLinkClick();
 
-        forgotPasswordPage.rememberedPasswordLink.click();
+        forgotPasswordPage.rememberedPasswordLinkClick();
         loginPage.setLoginUser(userData.getEmail(), userData.getPassword());
         mainPage.collectBurgerMenu.shouldBe(Condition.visible);
     }

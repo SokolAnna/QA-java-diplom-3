@@ -34,9 +34,9 @@ public class RegisterTest {
         Configuration.pageLoadTimeout = 45000;
 
         mainPage = open(MainClient.BASE_URL, MainPageElements.class);
-        mainPage.personalAccountButton.click();
+        mainPage.accountButtonClick();
         loginPage = page(LoginPageElements.class);
-        loginPage.registerLink.click();
+        loginPage.registerLinkClick();
         registerPage = page(RegisterPageElements.class);
     }
 
