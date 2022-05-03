@@ -5,19 +5,21 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
+import static com.codeborne.selenide.Condition.enabled;
+
 public class LoginPageElements {
     @FindBy(how = How.CLASS_NAME, using = "Auth_login__3hAey")
     public SelenideElement loginLogo;
     @FindBy(how = How.XPATH, using = "//h2[text()='Вход']")
     public SelenideElement loginText;
 
-    @FindBy(how = How.XPATH, using = "//div[@class='input pr-6 pl-6 input_type_text input_size_default']/label[text()='Email']")
+    @FindBy(how = How.XPATH, using = "//label[text()='Email']")
     public SelenideElement emailPlaceholderTextLogin;
-    @FindBy(how = How.XPATH, using = "//div[@class='input pr-6 pl-6 input_type_text input_size_default input_status_active']/input[@name='name']")
+    @FindBy(how = How.XPATH, using = "//input[@name='name']")
     public SelenideElement emailPlaceholderLogin;
 
     public void emailPlaceholderLoginClick() {
-        emailPlaceholderTextLogin.click();
+        emailPlaceholderTextLogin.shouldBe(enabled).click();
     }
 
     public void emailPlaceholderLoginSet(String email) {
@@ -29,13 +31,13 @@ public class LoginPageElements {
         emailPlaceholderLoginSet(email);
     }
 
-    @FindBy(how = How.XPATH, using = "//div[@class='input pr-6 pl-6 input_type_password input_size_default']/label[text()='Пароль']")
+    @FindBy(how = How.XPATH, using = "//label[text()='Пароль']")
     public SelenideElement passwordPlaceholderTextLogin;
-    @FindBy(how = How.XPATH, using = "//div[@class='input pr-6 pl-6 input_type_password input_size_default input_status_active']/input[@name='Пароль']")
+    @FindBy(how = How.XPATH, using = "//input[@name='Пароль']")
     public SelenideElement passwordPlaceholderLogin;
 
     public void passwordPlaceholderClickLogin() {
-        passwordPlaceholderTextLogin.click();
+        passwordPlaceholderTextLogin.shouldBe(enabled).click();
     }
 
     public void passwordPlaceholderSetLogin(String password) {
@@ -57,8 +59,19 @@ public class LoginPageElements {
         loginButton.click();
     }
 
-    @FindBy(how = How.XPATH, using = "//p[@class='undefined text text_type_main-default text_color_inactive mb-4']/a[text()='Зарегистрироваться']")
+    @FindBy(how = How.XPATH, using = "//a[text()='Зарегистрироваться']")
     public SelenideElement registerLink;
+
+    @Step("Click already registered link on the login page")
+    public void registerLinkClick() {
+        registerLink.shouldBe(enabled).click();
+    }
+
     @FindBy(how = How.XPATH, using = "//a[text()='Восстановить пароль']")
     public SelenideElement resetPasswordLink;
+
+    @Step("Click reset password link on the login page")
+    public void resetPasswordLinkClick() {
+        resetPasswordLink.click();
+    }
 }

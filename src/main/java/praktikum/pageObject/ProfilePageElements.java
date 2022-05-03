@@ -1,6 +1,7 @@
 package praktikum.pageObject;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
@@ -15,4 +16,9 @@ public class ProfilePageElements {
 
     @FindBy(how = How.XPATH, using = "//button[text()='Выход']")
     public SelenideElement logoutButton;
+
+    @Step("Click logout button in account page")
+    public void logoutButtonClick() {
+        logoutButton.click();
+    }
 }

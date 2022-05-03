@@ -6,8 +6,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 public class RegisterPageElements {
-    @FindBy(how = How.XPATH, using = "//div[@class='input pr-6 pl-6 input_type_text input_size_default']/label[text()='Имя']")
+    @FindBy(how = How.XPATH, using = "//label[text()='Имя']")
     public SelenideElement namePlaceholderText;
+
     @FindBy(how = How.XPATH, using = "//div[@class='input pr-6 pl-6 input_type_text input_size_default input_status_active']/input[@name='name']")
     public SelenideElement namePlaceholder;
 
@@ -24,7 +25,7 @@ public class RegisterPageElements {
         namePlaceholderSet(name);
     }
 
-    @FindBy(how = How.XPATH, using = "//div[@class='input pr-6 pl-6 input_type_text input_size_default']/label[text()='Email']")
+    @FindBy(how = How.XPATH, using = "//label[text()='Email']")
     public SelenideElement emailPlaceholderText;
     @FindBy(how = How.XPATH, using = "//div[@class='input pr-6 pl-6 input_type_text input_size_default input_status_active']/input[@name='name']")
     public SelenideElement emailPlaceholder;
@@ -42,9 +43,9 @@ public class RegisterPageElements {
         emailPlaceholderSet(email);
     }
 
-    @FindBy(how = How.XPATH, using = "//div[@class='input pr-6 pl-6 input_type_password input_size_default']/label[text()='Пароль']")
+    @FindBy(how = How.XPATH, using = "//label[text()='Пароль']")
     public SelenideElement passwordPlaceholderText;
-    @FindBy(how = How.XPATH, using = "//div[@class='input pr-6 pl-6 input_type_password input_size_default input_status_active']/input[@name='Пароль']")
+    @FindBy(how = How.XPATH, using = "//input[@name='Пароль']")
     public SelenideElement passwordPlaceholder;
 
     public void passwordPlaceholderClick() {
@@ -75,9 +76,14 @@ public class RegisterPageElements {
         registerButtonClick();
     }
 
-    @FindBy(how = How.XPATH, using = "//div[@class='input__container']/p[text()='Некорректный пароль']")
+    @FindBy(how = How.XPATH, using = "//p[text()='Некорректный пароль']")
     public SelenideElement inputPasswordError;
 
     @FindBy(how = How.XPATH, using = "//a[text()='Войти']")
     public SelenideElement alreadyRegisteredLoginButton;
+
+    @Step("Click login link on the registration page")
+    public void registrationLoginButtonClick() {
+        alreadyRegisteredLoginButton.click();
+    }
 }
