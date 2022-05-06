@@ -26,6 +26,7 @@ public class RegisterTest {
     MainPageElements mainPage;
     LoginPageElements loginPage;
     RegisterPageElements registerPage;
+    private String password = "passw";
 
     @Before
     public void setUp() {
@@ -65,7 +66,7 @@ public class RegisterTest {
     @DisplayName("Register user short password input error")
     @Description("Trying to put five symbols password error expected")
     public void registerShortPasswordInputError() {
-        registerPage.setRegisterUserData(userData.getName(), userData.getEmail(), "passw");
+        registerPage.setRegisterUserData(userData.getName(), userData.getEmail(), password);
         registerPage.inputPasswordError.shouldHave(text("Некорректный пароль"));
     }
 }
