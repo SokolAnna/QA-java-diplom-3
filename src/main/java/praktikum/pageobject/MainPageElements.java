@@ -19,6 +19,35 @@ public class MainPageElements {
     @FindBy(how = How.XPATH, using = "//p[text()='Личный Кабинет']")
     public SelenideElement personalAccountButton;
 
+    @FindBy(how = How.CLASS_NAME, using = "BurgerIngredients_ingredients__1N8v2")
+    public SelenideElement collectBurgerMenu;
+    @FindBy(how = How.CLASS_NAME, using = "BurgerIngredients_ingredients__menuContainer__Xu3Mo")
+    public SelenideElement ingredients;
+
+    @FindBy(how = How.XPATH, using = "//button[text()='Войти в аккаунт']")
+    public SelenideElement loginButton;
+
+    @FindBy(how = How.XPATH, using = "//span[text()='Булки']")
+    public SelenideElement bunsMenuButton;
+    @FindBy(how = How.XPATH, using = "//span[text()='Соусы']")
+    public SelenideElement saucesMenuButton;
+    @FindBy(how = How.XPATH, using = "//span[text()='Начинки']")
+    public SelenideElement fillingsMenuButton;
+
+    @FindBy(how = How.XPATH, using = "//h2[text()='Булки']")
+    public SelenideElement bunsHeader;
+    @FindBy(how = How.XPATH, using = "//h2[text()='Соусы']")
+    public SelenideElement saucesHeader;
+    @FindBy(how = How.XPATH, using = "//h2[text()='Начинки']")
+    public SelenideElement fillingsHeader;
+
+    @FindBy(how = How.XPATH, using = "//p[text()='Флюоресцентная булка R2-D3']")
+    public SelenideElement fluorescentBunText;
+    @FindBy(how = How.XPATH, using = "//p[text()='Соус Spicy-X']")
+    public SelenideElement spicySauceText;
+    @FindBy(how = How.XPATH, using = "//p[text()='Мясо бессмертных моллюсков Protostomia']")
+    public SelenideElement shellfishFillingText;
+
     @Step("Click constructor header button")
     public void constructorButtonClick() {
         constructorButton.click();
@@ -34,25 +63,10 @@ public class MainPageElements {
         personalAccountButton.click();
     }
 
-    @FindBy(how = How.CLASS_NAME, using = "BurgerIngredients_ingredients__1N8v2")
-    public SelenideElement collectBurgerMenu;
-    @FindBy(how = How.CLASS_NAME, using = "BurgerIngredients_ingredients__menuContainer__Xu3Mo")
-    public SelenideElement ingredients;
-
-    @FindBy(how = How.XPATH, using = "//button[text()='Войти в аккаунт']")
-    public SelenideElement loginButton;
-
     @Step("Click login button on the main page")
     public void loginButtonClick() {
         loginButton.click();
     }
-
-    @FindBy(how = How.XPATH, using = "//span[text()='Булки']")
-    public SelenideElement bunsMenuButton;
-    @FindBy(how = How.XPATH, using = "//span[text()='Соусы']")
-    public SelenideElement saucesMenuButton;
-    @FindBy(how = How.XPATH, using = "//span[text()='Начинки']")
-    public SelenideElement fillingsMenuButton;
 
     @Step("Click buns button on the menu")
     public void bunsMenuButtonClick() {
@@ -71,18 +85,4 @@ public class MainPageElements {
         fillingsMenuButton.shouldHave(visible, Duration.ofSeconds(20));
         fillingsMenuButton.shouldBe(enabled).click();
     }
-
-    @FindBy(how = How.XPATH, using = "//h2[text()='Булки']")
-    public SelenideElement bunsHeader;
-    @FindBy(how = How.XPATH, using = "//h2[text()='Соусы']")
-    public SelenideElement saucesHeader;
-    @FindBy(how = How.XPATH, using = "//h2[text()='Начинки']")
-    public SelenideElement fillingsHeader;
-
-    @FindBy(how = How.XPATH, using = "//p[text()='Флюоресцентная булка R2-D3']")
-    public SelenideElement fluorescentBunText;
-    @FindBy(how = How.XPATH, using = "//p[text()='Соус Spicy-X']")
-    public SelenideElement spicySauceText;
-    @FindBy(how = How.XPATH, using = "//p[text()='Мясо бессмертных моллюсков Protostomia']")
-    public SelenideElement shellfishFillingText;
 }

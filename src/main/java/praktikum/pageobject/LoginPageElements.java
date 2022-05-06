@@ -18,6 +18,19 @@ public class LoginPageElements {
     @FindBy(how = How.XPATH, using = "//input[@name='name']")
     public SelenideElement emailPlaceholderLogin;
 
+    @FindBy(how = How.XPATH, using = "//label[text()='Пароль']")
+    public SelenideElement passwordPlaceholderTextLogin;
+    @FindBy(how = How.XPATH, using = "//input[@name='Пароль']")
+    public SelenideElement passwordPlaceholderLogin;
+
+    @FindBy(how = How.XPATH, using = "//button[text()='Войти']")
+    public SelenideElement loginButton;
+
+    @FindBy(how = How.XPATH, using = "//a[text()='Зарегистрироваться']")
+    public SelenideElement registerLink;
+    @FindBy(how = How.XPATH, using = "//a[text()='Восстановить пароль']")
+    public SelenideElement resetPasswordLink;
+
     public void emailPlaceholderLoginClick() {
         emailPlaceholderTextLogin.shouldBe(enabled).click();
     }
@@ -30,11 +43,6 @@ public class LoginPageElements {
         emailPlaceholderLoginClick();
         emailPlaceholderLoginSet(email);
     }
-
-    @FindBy(how = How.XPATH, using = "//label[text()='Пароль']")
-    public SelenideElement passwordPlaceholderTextLogin;
-    @FindBy(how = How.XPATH, using = "//input[@name='Пароль']")
-    public SelenideElement passwordPlaceholderLogin;
 
     public void passwordPlaceholderClickLogin() {
         passwordPlaceholderTextLogin.shouldBe(enabled).click();
@@ -49,9 +57,6 @@ public class LoginPageElements {
         passwordPlaceholderSetLogin(password);
     }
 
-    @FindBy(how = How.XPATH, using = "//button[text()='Войти']")
-    public SelenideElement loginButton;
-
     @Step("Login user")
     public void setLoginUser(String email, String password) {
         setEmailLogin(email);
@@ -59,16 +64,10 @@ public class LoginPageElements {
         loginButton.click();
     }
 
-    @FindBy(how = How.XPATH, using = "//a[text()='Зарегистрироваться']")
-    public SelenideElement registerLink;
-
     @Step("Click already registered link on the login page")
     public void registerLinkClick() {
         registerLink.shouldBe(enabled).click();
     }
-
-    @FindBy(how = How.XPATH, using = "//a[text()='Восстановить пароль']")
-    public SelenideElement resetPasswordLink;
 
     @Step("Click reset password link on the login page")
     public void resetPasswordLinkClick() {
