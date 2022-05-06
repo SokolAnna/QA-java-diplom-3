@@ -31,6 +31,7 @@ public class RegisterTest {
     @Before
     public void setUp() {
         userData = UserGenerator.getRandom();
+        Configuration.browserSize = "1920x1080";
         System.setProperty("selenide.browser", "Chrome");
         Configuration.pageLoadTimeout = 45000;
 

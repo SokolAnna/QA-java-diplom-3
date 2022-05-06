@@ -18,6 +18,7 @@ public class ConstructorTest {
 
     @Before
     public void setUp() {
+        Configuration.browserSize = "1920x1080";
         System.setProperty("selenide.browser", "Chrome");
         Configuration.pageLoadTimeout = 5000;
 
