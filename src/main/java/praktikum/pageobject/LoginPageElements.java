@@ -1,4 +1,4 @@
-package praktikum.pageObject;
+package praktikum.pageobject;
 
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;

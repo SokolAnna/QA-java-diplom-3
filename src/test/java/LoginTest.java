@@ -8,10 +8,10 @@ import io.restassured.response.ValidatableResponse;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import praktikum.pageObject.ForgotPasswordPageElements;
-import praktikum.pageObject.LoginPageElements;
-import praktikum.pageObject.MainPageElements;
-import praktikum.pageObject.RegisterPageElements;
+import praktikum.pageobject.ForgotPasswordPageElements;
+import praktikum.pageobject.LoginPageElements;
+import praktikum.pageobject.MainPageElements;
+import praktikum.pageobject.RegisterPageElements;
 import praktikum.UserGenerator;
 import praktikum.UserData;
 

@@ -4,14 +4,13 @@ import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Before;
 import org.junit.Test;
-import praktikum.pageObject.MainPageElements;
+import praktikum.pageobject.MainPageElements;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.page;
 
 import java.lang.*;
-import java.time.Duration;
 
 public class ConstructorTest {
     MainPageElements mainOpen;
