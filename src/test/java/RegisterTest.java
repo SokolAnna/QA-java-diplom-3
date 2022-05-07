@@ -1,7 +1,5 @@
-import praktikum.MainClient;
-import praktikum.UserClient;
+import praktikum.*;
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Configuration;
 import io.qameta.allure.junit4.DisplayName;
 import io.qameta.allure.Description;
 import io.restassured.response.ValidatableResponse;
@@ -11,14 +9,12 @@ import org.junit.Test;
 import praktikum.pageobject.LoginPageElements;
 import praktikum.pageobject.MainPageElements;
 import praktikum.pageobject.RegisterPageElements;
-import praktikum.UserGenerator;
-import praktikum.UserData;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.page;
 
-public class RegisterTest {
+public class RegisterTest extends BeforeSetUp {
     int statusCode;
     String token;
     UserData userData;
@@ -31,12 +27,9 @@ public class RegisterTest {
     @Before
     public void setUp() {
         userData = UserGenerator.getRandom();
-        Configuration.browserSize = "1920x1080";
-        System.setProperty("selenide.browser", "Chrome");
-        Configuration.pageLoadTimeout = 45000;
-
         mainPage = open(MainClient.BASE_URL, MainPageElements.class);
         mainPage.accountButtonClick();
+
         loginPage = page(LoginPageElements.class);
         loginPage.registerLinkClick();
         registerPage = page(RegisterPageElements.class);

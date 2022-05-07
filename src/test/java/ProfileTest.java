@@ -1,7 +1,6 @@
 import praktikum.MainClient;
 import praktikum.UserClient;
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Configuration;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.ValidatableResponse;
@@ -22,7 +21,7 @@ import static com.codeborne.selenide.Selenide.page;
 import java.lang.*;
 import java.time.Duration;
 
-public class ProfileTest {
+public class ProfileTest extends BeforeSetUp {
     int statusCode;
     String token;
     UserData userData;
@@ -35,9 +34,6 @@ public class ProfileTest {
     @Before
     public void setUp() {
         userData = UserGenerator.getRandom();
-        Configuration.browserSize = "1920x1080";
-        System.setProperty("selenide.browser", "Chrome");
-        Configuration.pageLoadTimeout = 45000;
 
         userClient = new UserClient();
         ValidatableResponse createResponse = userClient.create(userData);

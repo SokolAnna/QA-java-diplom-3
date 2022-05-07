@@ -1,5 +1,4 @@
 import praktikum.MainClient;
-import com.codeborne.selenide.Configuration;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Before;
@@ -10,18 +9,12 @@ import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.page;
 
-import java.lang.*;
-
-public class ConstructorTest {
+public class ConstructorTest extends BeforeSetUp {
     MainPageElements mainOpen;
     MainPageElements mainPage;
 
     @Before
     public void setUp() {
-        Configuration.browserSize = "1920x1080";
-        System.setProperty("selenide.browser", "Chrome");
-        Configuration.pageLoadTimeout = 5000;
-
         mainOpen = open(MainClient.BASE_URL, MainPageElements.class);
         mainPage = page(MainPageElements.class);
     }
